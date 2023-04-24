@@ -7,6 +7,8 @@ import {
   createTheme,
 } from "@mui/material";
 import { Outlet } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -15,8 +17,8 @@ function App() {
     palette: {
       mode: paletteType,
       background: {
-        default: paletteType === 'light' ? '#eaeaea' : '#2b2b2b'
-      }
+        default: paletteType === "light" ? "#eaeaea" : "#2b2b2b",
+      },
     },
   });
 
@@ -26,6 +28,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <ToastContainer position="bottom-right" hideProgressBar theme="colored" />
       <CssBaseline />
       <Header darkMode={darkMode} handleThemeChange={handleThemeChange} />
       <Container>
